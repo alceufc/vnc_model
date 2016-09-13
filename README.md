@@ -1,2 +1,47 @@
-# vnc_model
-Implementation of the Vote-and-Comment model.
+# VnC Model
+
+Matlab implementation of the VnC-Model which is described in the following paper:
+
+>**Vote-and-Comment: Modeling the Coevolution of User Interactions in Social Voting Web Sites**
+
+> Alceu Ferraz Costa, Agma Juci Machado Traina, Caetano Traina Jr., and Christos Faloutsos
+
+> IEEE International Conference on Data Mining (ICDM), 2015
+
+## How to Use
+
+First, we need to load some data to use in the examples below. Also we will
+include into Matlab path variable all the subfolders of the repository:
+```matlab
+addpath(genpath('.'));
+[ Ucell, Dcell, Ccell ] = load_data('imgur');
+```
+
+### Fitting an up-vote time-series
+
+To fit an up-vote time-series, we use the `fit_vote_model` function, passing
+as input argument a handle to the `v_and_c` function and the time-series that
+we want to fit (in this case, `Ucell{1}`):
+```
+params = fit_vote_model(@v_and_c, Ucell{1});
+```
+
+Now we can use the `plot_vote_model_fit` to compare the fit to the data:
+```
+plot_vote_model_fit(@v_and_c, params, Ucell{1});
+```
+
+The result should be similar to the following figure:
+![Up-votes time-series fit](./doc/vote_model_fit.png?raw=true "Up-vote time-series fit" )
+
+
+### Fitting an up-vote vs. down-vote curve
+
+
+### Fitting an comments vs. votes curve
+
+
+### Forecasting
+
+
+### Batch Fitting
