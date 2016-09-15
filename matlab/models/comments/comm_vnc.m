@@ -1,11 +1,11 @@
-function [fh_lin, x0_fh, lb, ub, paramNames, modelName] = comm_power_law()
+function [fh, x0_fh, lb, ub, paramNames, modelName] = comm_vnc()
 
-fh_lin = @model_func;
+fh = @model_func;
 x0_fh = @initial_param_est;
 lb = [0, 0];
 ub = [54, 5];
 paramNames = {'a', 'b'};
-modelName = 'a x(n)^b';
+modelName = 'VnC';
 
 function [ C ] = model_func( x, V )
     a = x(1);

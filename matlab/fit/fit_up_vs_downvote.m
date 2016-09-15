@@ -20,7 +20,7 @@ function [ params_up, params_down, r2_up, r2_down ] = fit_up_vs_downvote( U, D, 
 %     params_up: estimated parameters for the up-vote time-series.
 %
 %     params_down: estimated parameters for the down-vote time-series.
-%     
+%
 
 % Parse optional arguments.
 parser = inputParser;

@@ -57,6 +57,19 @@ plot_up_vs_downvote_fit(params_up, params_down, Ucell{1}, Dcell{1});
 
 ### Fitting an comments vs. votes curve
 
+To fit the the votes vs. comments curve of a submission we use the
+`fit_votes_vs_comments` function:
+```matlab
+[params_comm] = fit_votes_vs_comments(@comm_vnc, Ucell{1}, Dcell{1}, Ccell{1});
+```
+
+And now we plot the resulting curve using the `plot_votes_vs_comments_fit`
+function:
+```matlab
+plot_votes_vs_comments_fit(@comm_vnc, params_comm, Ucell{1}, Dcell{1}, Ccell{1});
+```
+
+![Votes vs. comments fit](./doc/votes_vs_comments_fit.png?raw=true "Votes vs. comments fit" )
 
 ### Forecasting
 

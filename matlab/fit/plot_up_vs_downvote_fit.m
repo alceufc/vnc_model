@@ -1,4 +1,4 @@
-function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down, U, D, varargin )
+function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down, U, D )
 % PLOT_UP_VS_DOWNVOTE_FIT Compares the data to the fitted up-vote vs.
 % down-vote curve.
 %
@@ -20,12 +20,6 @@ function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down
 %
 
 model = @v_and_c;
-
-% Parse optional arguments.
-parser = inputParser;
-addParamValue(parser, 'tickLen', 20, @isnumeric);
-
-parse(parser, varargin{:});
 [fh, ~, ~, ~, ~, ~, ~, modelName] = model();
 
 % Plot data.
