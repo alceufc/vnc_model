@@ -4,7 +4,7 @@ fh_log = @(x, Y) log10(fh_lin(x, Y) + 1);
 x0_fh = @initial_param_est;
 
 % Min and maximum bounds from fitting data.
-lb = [0, -15, -14, -30,  0,    0];
+lb = [0.3, -15, -14, -30,  0,    0];
 ub = [15,  17,   3,  40, 17, +inf];
 
 typicalX = [1, 1, 1, 1, 1, 1];
