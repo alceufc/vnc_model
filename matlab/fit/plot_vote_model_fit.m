@@ -15,7 +15,6 @@ function [ hFit, hData, hLeg ] = plot_vote_model_fit( model, params, U, varargin
 %     20 min).
 %
 
-
 MINUTES_IN_HOUR = 60;
 
 % Parse optional arguments.

@@ -73,5 +73,21 @@ plot_votes_vs_comments_fit(@comm_vnc, params_comm, Ucell{1}, Dcell{1}, Ccell{1})
 
 ### Forecasting
 
+To forecast a time-series we use the `tail_forecast` function. It takes as input
+a training part of a complete time-series, the model that will be used for
+forecasting and the desired length of the forecasted time-series.
+In the example below, we use the first `trainSize = 30` time-ticks of the
+up-vote time-series `Ucell{1}` to train the VnC model:
+```matlab
+trainSize = 30;
+forecastSize = 100;
+[ Uforecast  ] = tail_forecast(Ucell{1}(1:trainSize), @v_and_c, forecastSize);
+```
 
-### Batch Fitting
+To plot the result we use the `plot_tail_forecast` function:
+
+```matlab
+plot_tail_forecast(@v_and_c, Ucell{1}, Uforecast, trainSize);
+```
+
+![Tail forecast](./doc/tail_forecast.png?raw=true "Tail forecast" )
