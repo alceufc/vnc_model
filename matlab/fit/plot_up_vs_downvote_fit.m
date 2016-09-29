@@ -1,4 +1,4 @@
-function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down, U, D )
+function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down, U, D, varargin )
 % PLOT_UP_VS_DOWNVOTE_FIT Compares the data to the fitted up-vote vs.
 % down-vote curve.
 %
@@ -18,6 +18,14 @@ function [ hFit, hData, hLeg ] = plot_up_vs_downvote_fit( params_up, params_down
 %     tickLen: number of minutes between two time ticks (defaults to
 %     20 min).
 %
+
+% Parse optional arguments.
+parser = inputParser;
+addParamValue(parser, 'showLegend', true, @islogical);
+
+parse(parser, varargin{:});
+showLegend = parser.Results.showLegend;
+
 
 model = @v_and_c;
 [fh, ~, ~, ~, ~, ~, ~, modelName] = model();
@@ -44,9 +52,11 @@ set(gca, 'Ylim', [0, maxY * 1.1]);
 ylabel('Down-votes');
 xlabel('Up-votes');
 
-hLeg = legend('Data', modelName);
-set(hLeg, 'Location', 'Northwest');
-set(hLeg, 'Box', 'off');
-set(hLeg, 'Color', 'none');
+if showLegend
+    hLeg = legend('Data', modelName);
+    set(hLeg, 'Location', 'Northwest');
+    set(hLeg, 'Box', 'off');
+    set(hLeg, 'Color', 'none');
+end;
 
 end

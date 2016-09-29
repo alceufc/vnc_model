@@ -99,7 +99,7 @@ ylabel('Up-votes');
 xlabel('Time (h)');
     
 if showLegend
-    hLeg = legend('Data', modelName);
+    hLeg = legend('Train Data', 'Tail Data', modelName);
     set(hLeg, 'Box', 'off');
     set(hLeg, 'Color', 'none');
     set(hLeg, 'Location', 'NorthWest');
