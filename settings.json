@@ -3,7 +3,8 @@
         "reddit" : "../sample_data/reddit/",
         "imgur": "../sample_data/imgur/"
     },
-    "fig_dir": "figs",
+    "fig_dir": "../figs/",
     "doc_dir": "../doc/",
+    "pres_data_dir": "../pres_data/",
     "tick_len": 20
 }

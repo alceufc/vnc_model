@@ -9,7 +9,7 @@ figure;
 figName = 'data_example.eps';
 plot_path  = fullfile(settings.doc_dir, figName);
 pos = 1;
-plot_user_data( Ucell{pos}, Dcell{pos}.*2, Ccell{pos}.*20);
+plot_user_data(Ucell{pos}, Dcell{pos}.*2, Ccell{pos}.*20);
 save_as_eps(plot_path, [4.0, 1.3]);
 
 figure;
