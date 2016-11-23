@@ -2,24 +2,30 @@ function [] = presentation_figs( )
 % PRESENTATION_FIGS Generates figures for the presentation.
 settings = load_settings();
 
-[ Ucell, Dcell, Ccell ] = load_data('imgur');
+%[ Ucell, Dcell, Ccell ] = load_data('imgur'); % DEBUG
+[ Ucell, Dcell, Ccell ] = load_data('reddit');
 
 figure;
 
-figName = 'data_example.eps';
-plot_path  = fullfile(settings.doc_dir, figName);
-pos = 1;
-plot_user_data(Ucell{pos}, Dcell{pos}.*2, Ccell{pos}.*20);
-save_as_eps(plot_path, [4.0, 1.3]);
+% figName = 'data_example.eps';
+% plot_path  = fullfile(settings.doc_dir, figName);
+% pos = 1;
+% plot_user_data(Ucell{pos}, Dcell{pos}.*2, Ccell{pos}.*20);
+% save_as_eps(plot_path, [4.0, 1.3]);
 
 figure;
-pos = 1;
+pos = 6;
 figName = 'vote_model_fit_slide.eps';
-plot_path  = fullfile(settings.doc_dir, figName);
+plot_path  = fullfile(settings.fig_dir, figName);
 params = fit_vote_model(@v_and_c, Ucell{pos});
 plot_vote_model_fit(@v_and_c, params, Ucell{pos});
+set(gca,'XScale','log'); set(gca,'YScale','log'); 
+xlim_curr = get(gca,'xlim');
+set(gca, 'xlim', [5.0 xlim_curr(2)]);
+
 save_as_eps(plot_path, [3.5, 1.6]);
 
+if false % DEBUG
 figure;
 pos = 2;
 figName = 'up_vs_downvote_fit_slide.eps';
@@ -52,5 +58,6 @@ Uforecast = tail_forecast(Ucell{pos}(1:trainSize), @v_and_c, forecastSize);
 set(hLeg, 'Location', 'NorthOutside');
 set(hLeg, 'orientation', 'horizontal');
 save_as_eps(plot_path, [4.3, 1.8]);
+end; % DEBUG
 
 end
