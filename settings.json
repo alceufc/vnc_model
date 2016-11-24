@@ -1,7 +1,8 @@
 {
     "datasets": {
         "reddit" : "../sample_data/reddit/",
-        "imgur": "../sample_data/imgur/"
+        "imgur": "../sample_data/imgur/",
+        "digg": "../sample_data/digg/"
     },
     "fig_dir": "../figs/",
     "doc_dir": "../doc/",
