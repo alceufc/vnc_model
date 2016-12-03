@@ -95,3 +95,9 @@ plot_tail_forecast(@v_and_c, Ucell{1}, Uforecast, trainSize);
 
 ## Datasets
 
+You can find a small sample of the Reddit, Imgur and Digg data used in the
+paper in the `sample_data` of this repository.
+The [complete Reddit and Imgur datasets are on OSF](https://osf.io/bc3k6/).
+The [Digg dataset can be found here](http://www.isi.edu/~lerman/downloads/digg2009.html).
+
+
