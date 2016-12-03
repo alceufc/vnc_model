@@ -5,7 +5,8 @@ function [ Ucell, Dcell, Ccell, Tsub, Sr, Sr_name, fnames ] = load_data( dataset
 %     U, D, C: Nx1 cell arrays, where N is the number of timelines and each entry 
 %     is a column vector with up-vote/down-vote/comment time-series of a link.
 %
-%     Tsub: Nx1 array with the Unix (UTC) time of creation (submission) of a link.
+%     Tsub: Nx1 array with the creation time of the submission. The value
+%     is the number of minutes after UTC midnight.
 %
 %     Sr: Nx1 array with the sub-reddit integer ID of a link.
 %
